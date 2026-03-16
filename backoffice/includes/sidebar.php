@@ -7,18 +7,20 @@
     </div>
 
     <div class="list-group list-group-flush mt-2">
-        <a href="dashboard.php" class="p-3 text-center mt-2 border-0 ">📊 Dashboard</a>
-        <a href="#" class="p-3 text-center mt-2 border-0">🩺 Equipamentos</a>
-        <a href="#" class="p-3 text-center mt-2 border-0">📍 Localizações</a>
-        <a href="#" class="p-3 text-center mt-2 border-0">🏢 Fornecedores</a>
+        <a href="dashboard.php" class="list-group-item list-group-item-dark p-3 border-0">📊 Dashboard</a>
+        <a href="/PROJECTO/backoffice/views/equipamentos/index.php" class="list-group-item list-group-item-dark p-3 border-0">🩺 Equipamentos</a>
+        <a href="/PROJECTO/backoffice/views/localizacoes/index.php"
+            class="list-group-item list-group-item-dark p-3 border-0">📍 Localizações</a>
+        <a href="/PROJECTO/backoffice/views/fornecedores/index.php" class="list-group-item list-group-item-dark p-3 border-0">🏢 Fornecedores</a>
 
         <?php if ($_SESSION['user_perfil'] === 'Admin'): ?>
-            <a href="#" class="p-3 text-center mt-2 border-0 text-warning">⚙️ Gerir Utilizadores</a>
-        <?php endif; ?>
+
+                       <a href="#" class="list-group-item list-group-item-dark p-3 border-0 text-warning">⚙️ Gerir Utilizadores</a>
+            <?php endif; ?>
+    </di    v>
+        <div class="d-flex align-items-center">
+        <a href="/PROJECTO/login/logout.php" class="d-block text-muted">Sair</a>
     </div>
-    <div class="d-flex align-items-center">
-            <a href="/PROJECTO/login/logout.php" class="d-block text-muted">Sair</a>
-        </div>
 </aside>
 
 <div id="page-content-wrapper">

@@ -18,6 +18,7 @@ require_once __DIR__ . '/../../config/db_connect.php';
     <title>CMMS Hospitalar</title>
     <link href="/PROJECTO/backoffice/assets/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="/PROJECTO/backoffice/assets/css/styles.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
