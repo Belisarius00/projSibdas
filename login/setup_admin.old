@@ -1,0 +1,28 @@
+<?php
+// login/setup_admin.php
+
+// Go up one level to reach the config folder
+require_once '../config/db_connect.php';
+
+$email = 'admin@hospital.pt';
+$password_plain = 'admin123';
+
+// This generates a mathematically valid hash unique to your PHP environment
+$password_hashed = password_hash($password_plain, PASSWORD_DEFAULT);
+
+try {
+    // Update the existing user we inserted via SQL earlier
+    $stmt = $pdo->prepare("UPDATE utilizadores SET password = :password WHERE email = :email");
+    $stmt->execute([
+        'password' => $password_hashed,
+        'email' => $email
+    ]);
+    
+    echo "<h3>Sucesso!</h3>";
+    echo "<p>A password real foi codificada e guardada na base de dados.</p>";
+    echo "<p>Já pode voltar à <a href='../frontoffice/index.php'>página inicial</a> e fazer o login.</p>";
+    
+} catch (PDOException $e) {
+    echo "Erro na base de dados: " . $e->getMessage();
+}
+?>

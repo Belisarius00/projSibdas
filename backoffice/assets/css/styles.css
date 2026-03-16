@@ -1,0 +1,78 @@
+body {
+    overflow-x: hidden;
+    background-color: #f8f9fa;
+    /* Bootstrap bg-light */
+}
+
+/* 1. Freeze the Top Navbar */
+#top-navbar {
+    height: 60px;
+    z-index: 1030;
+}
+
+/* The Hoverable Trigger Element */
+#menu-toggle {
+    cursor: pointer;
+    transition: opacity 0.2s ease-in-out;
+    user-select: none;
+}
+
+#menu-toggle:hover {
+    opacity: 0.75;
+}
+
+/* 2. Wrapper starts below the 60px navbar */
+#wrapper {
+    display: flex;
+    width: 100%;
+    margin-top: 60px;
+}
+
+/* 3. Freeze the Sidebar to the left */
+#sidebar-wrapper {
+    min-width: 250px;
+    max-width: 250px;
+    background-color: #212529;
+    height: calc(100vh - 60px);
+    /* Full height minus navbar */
+    position: fixed;
+    left: 0;
+    top: 60px;
+    z-index: 1000;
+    transition: margin 0.25s ease-out;
+    overflow-y: auto;
+}
+
+/* When collapsed, hide it off-screen to the left */
+#sidebar-wrapper.collapsed {
+    margin-left: -250px;
+}
+
+/* 4. The Content Area shifts based on the sidebar's presence */
+#page-content-wrapper {
+    width: 100%;
+    padding: 20px;
+    margin-left: 250px;
+    /* Make room for the open sidebar */
+    transition: margin 0.25s ease-out;
+}
+
+/* When sidebar is collapsed, remove the left margin so content fills the screen */
+#sidebar-wrapper.collapsed~#page-content-wrapper {
+    margin-left: 0;
+}
+
+#sidebar-wrapper .list-group-item {
+    background-color: transparent;
+    color: #cacaca;
+    border: none;
+    text-align: center;
+    font-size: 1.1rem;
+}
+#sidebar-wrapper .list-group-item.active {
+    background-color: #cacaca;
+    color: #212529;
+    border: none;
+    text-align: center;
+    font-size: 1.1rem;
+}
