@@ -91,27 +91,6 @@ try {
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const deleteButtons = document.querySelectorAll('.btn-delete');
-        deleteButtons.forEach(button => {
-            button.addEventListener('click', function () {
-                const form = this.closest('.delete-form');
-                Swal.fire({
-                    title: 'Remover fornecedor?',
-                    text: "Esta ação não pode ser revertida!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#d33',
-                    cancelButtonColor: '#6c757d',
-                    confirmButtonText: 'Sim, remover!',
-                    cancelButtonText: 'Cancelar'
-                }).then((result) => {
-                    if (result.isConfirmed) { form.submit(); }
-                });
-            });
-        });
-    });
-</script>
+<script src="/PROJECTO/backoffice/assets/js/1190754.js"></script>
 
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>

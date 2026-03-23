@@ -7,7 +7,8 @@
     </div>
 
     <div class="list-group list-group-flush mt-2">
-        <a href="dashboard.php" class="list-group-item list-group-item-dark p-3 border-0">📊 Dashboard</a>
+        <a href="/PROJECTO/backoffice/dashboard.php"
+            class="list-group-item list-group-item-dark p-3 border-0">📊Dashboard</a>
         <a href="/PROJECTO/backoffice/views/equipamentos/index.php"
             class="list-group-item list-group-item-dark p-3 border-0">🩺 Equipamentos</a>
         <a href="/PROJECTO/backoffice/views/localizacoes/index.php"
