@@ -1,11 +1,8 @@
 <?php
-// backoffice/views/localizacoes/index.php
 
-// Use __DIR__ to reliably find the includes folder
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/sidebar.php';
 
-// Fetch all locations from the database
 try {
     $stmt = $pdo->query("SELECT * FROM localizacoes ORDER BY edificio, servico_departamento");
     $localizacoes = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -110,7 +107,6 @@ try {
                     cancelButtonText: 'Cancelar'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        // If the user clicks 'Sim', submit the form dynamically
                         form.submit();
                     }
                 });

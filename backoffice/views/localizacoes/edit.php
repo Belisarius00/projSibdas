@@ -1,13 +1,11 @@
 <?php
-// backoffice/views/localizacoes/edit.php
 
 require_once __DIR__ . '/../../includes/header.php'; 
 require_once __DIR__ . '/../../includes/sidebar.php';
 
 $error_msg = null;
-$loc = null; // This will hold our location data
+$loc = null; 
 
-// 1. INITIAL LOAD: Fetch existing data based on the ?id= parameter in the URL
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
     $id = $_GET['id'];
     
@@ -17,7 +15,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
         $loc = $stmt->fetch(PDO::FETCH_ASSOC);
         
         if (!$loc) {
-            // If someone types a random ID in the URL that doesn't exist
             echo "<script>alert('Localização não encontrada!'); window.location.href='index.php';</script>";
             exit;
         }
@@ -26,7 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
     }
 }
 
-// 2. FORM SUBMISSION: Handle the UPDATE when the user clicks "Guardar"
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $_POST['id'];
     $edificio = trim($_POST['edificio']);
@@ -36,7 +32,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($edificio) || empty($servico)) {
         $error_msg = "Os campos 'Edifício' e 'Serviço/Departamento' são obrigatórios.";
-        // Repopulate the array so the form doesn't go blank on error
         $loc = ['id' => $id, 'edificio' => $edificio, 'piso' => $piso, 'servico_departamento' => $servico, 'sala_gabinete' => $sala];
     } else {
         try {
@@ -66,8 +61,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
-
-// If we somehow arrived here without an ID in GET or POST, boot the user back to index
 if (!$loc && !isset($error_msg)) {
     echo "<script>window.location.href='index.php';</script>";
     exit;

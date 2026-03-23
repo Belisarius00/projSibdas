@@ -1,12 +1,8 @@
 <?php
-// backoffice/dashboard.php
-// 1. Include the Header (this handles auth and opens the layout)
-require_once __DIR__ . '\includes\header.php'; 
 
-// 2. Include the Sidebar
+require_once __DIR__ . '\includes\header.php'; 
 require_once __DIR__ . '\includes\sidebar.php';
 
-// Fetch your dashboard variables here (total equipments, etc.) as we did before...
 $total_equipamentos = 0; // Placeholder
 $total_ativos = 0;       // Placeholder
 $total_manutencao = 0;   // Placeholder
@@ -47,6 +43,5 @@ $total_manutencao = 0;   // Placeholder
 </div>
 
 <?php 
-// 3. Include the Footer (closes the layout and adds JS)
 require_once __DIR__ . '/includes/footer.php'; 
 ?>

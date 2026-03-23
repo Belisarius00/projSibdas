@@ -1,7 +1,6 @@
 <?php
-// login/login_process.php
+
 session_start();
-// PATH CHANGE: Tell PHP to go up one level (../) to find the config folder
 require_once '../config/db_connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -22,16 +21,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         } else {
             $_SESSION['login_error'] = "Credenciais inválidas.";
-            header("Location: ../frontoffice/index.php"); // Path change here too
+            header("Location: ../frontoffice/index.php"); 
             exit;
         }
     } catch (PDOException $e) {
         $_SESSION['login_error'] = "Erro no sistema: " . $e->getMessage();
-        header("Location: ../frontoffice/index.php"); // Path change here too
+        header("Location: ../frontoffice/index.php"); 
         exit;
     }
 } else {
-    header("Location: ../frontoffice/index.php"); // Path change here too
+    header("Location: ../frontoffice/index.php"); 
     exit;
 }
 ?>

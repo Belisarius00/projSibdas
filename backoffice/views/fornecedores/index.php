@@ -5,7 +5,6 @@ require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/sidebar.php';
 
 try {
-    // Fetch suppliers, ordered alphabetically by company name
     $stmt = $pdo->query("SELECT * FROM fornecedores ORDER BY nome_empresa ASC");
     $fornecedores = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {

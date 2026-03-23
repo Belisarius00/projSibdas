@@ -1,30 +1,22 @@
 <?php
-// backoffice/views/localizacoes/create.php
 
-// 1. Include the Header (which handles the session and DB connection)
 require_once __DIR__ . '/../../includes/header.php'; 
 require_once __DIR__ . '/../../includes/sidebar.php';
 
-// 2. Handle the Form Submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Sanitize the inputs to prevent weird characters or extra spaces
     $edificio = trim($_POST['edificio']);
     $piso = trim($_POST['piso']);
     $servico = trim($_POST['servico_departamento']);
     $sala = trim($_POST['sala_gabinete']);
 
-    // Basic Validation: Ensure mandatory fields are filled
     if (empty($edificio) || empty($servico)) {
         $error_msg = "Os campos 'Edifício' e 'Serviço/Departamento' são obrigatórios.";
     } else {
         try {
-            // Prepare the SQL statement using placeholders (:name) for security
             $sql = "INSERT INTO localizacoes (edificio, piso, servico_departamento, sala_gabinete) 
                     VALUES (:edificio, :piso, :servico, :sala)";
             
             $stmt = $pdo->prepare($sql);
-            
-            // Execute the query, mapping the variables to the placeholders
             $stmt->execute([
                 ':edificio' => $edificio,
                 ':piso' => $piso,
@@ -32,10 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ':sala' => $sala
             ]);
 
-            // If successful, set a success message and redirect back to the list
             $_SESSION['success_msg'] = "Localização criada com sucesso!";
-            
-            // IMPORTANT: Since this is PHP, we use header() to redirect, stopping the rest of the script.
             echo "<script>window.location.href='index.php';</script>"; 
             exit;
 
@@ -116,6 +105,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 
 <?php 
-// 4. Include the Footer
 require_once __DIR__ . '/../../includes/footer.php'; 
 ?>
