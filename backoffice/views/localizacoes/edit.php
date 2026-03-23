@@ -24,6 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
     $id = $_POST['id'];
     $edificio = trim($_POST['edificio']);
     $piso = trim($_POST['piso']);
@@ -70,13 +71,6 @@ if (!$loc && !isset($error_msg)) {
 <div class="row mb-4">
     <div class="col-12">
         <h2 class="text-secondary">📍 Editar Localização</h2>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="index.php">Localizações</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Editar</li>
-            </ol>
-        </nav>
         <hr>
     </div>
 </div>

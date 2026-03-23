@@ -38,13 +38,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="row mb-4">
     <div class="col-12">
         <h2 class="text-secondary">📍 Nova Localização</h2>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="index.php">Localizações</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Criar</li>
-            </ol>
-        </nav>
         <hr>
     </div>
 </div>
